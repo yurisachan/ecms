@@ -14,6 +14,7 @@ export function request(config){
     axiosInstance.interceptors.request.use(config => {
     // Do something before request is sent
     //一般可以用于config信息过滤，请求loading动画，添加token等特殊信息
+    config.headers.Authorization=window.sessionStorage.getItem('token')
     return config;
     },error => {
     // Do something with request error
